@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class SynopsisMapper extends Mapper<Object, Text, Text, Text> {
 
-    private Text animeId = new Text();
-    private Text nameSynopsis = new Text();
+    private final Text animeId = new Text();
+    private final Text nameSynopsis = new Text();
 
     public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
         String[] fields = value.toString().split(",");
