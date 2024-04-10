@@ -16,9 +16,9 @@ public class BirthdayMapper extends Mapper<LongWritable, Text, Text, Text> {
         String line = value.toString();
         String[] parts = line.split(",");
 
-        // Manejar errores si no hay suficientes columnas en la línea
-        if (parts.length < 5) {
-            System.err.println("Formato incorrecto para la línea: " + line);
+        // Manejar errores si no hay suficientes columnas en la línea o si alguna columna está en blanco
+        if (parts.length < 15 || containsBlankColumn(parts)) {
+            System.err.println("Formato incorrecto para la línea o columna en blanco: " + line);
             return;
         }
 
@@ -60,5 +60,15 @@ public class BirthdayMapper extends Mapper<LongWritable, Text, Text, Text> {
             outputValue.set(box.toString());
             context.write(outputKey, outputValue);
         }
+    }
+
+    // Método para verificar si alguna columna está en blanco
+    private boolean containsBlankColumn(String[] parts) {
+        for (String part : parts) {
+            if (part.trim().isEmpty()) {
+                return true;
+            }
+        }
+        return false;
     }
 }
