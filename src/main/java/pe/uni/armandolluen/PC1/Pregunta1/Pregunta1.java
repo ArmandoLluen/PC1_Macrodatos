@@ -1,4 +1,4 @@
-package pe.uni.armandolluen.PC1.Pregunta1a;
+package pe.uni.armandolluen.PC1.Pregunta1;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -9,12 +9,12 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
-public class Pregunta1a {
+public class Pregunta1 {
 
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "score statistics");
-        job.setJarByClass(Pregunta1a.class);
+        job.setJarByClass(Pregunta1.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(DoubleWritable.class);
         job.setMapperClass(ScoreMapper.class);

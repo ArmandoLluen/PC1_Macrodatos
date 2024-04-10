@@ -1,4 +1,4 @@
-package pe.uni.armandolluen.PC1.Pregunta1a;
+package pe.uni.armandolluen.PC1.Pregunta1;
 
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.Text;
@@ -13,7 +13,7 @@ public class ScoreMapper extends Mapper<Object, Text, Text, DoubleWritable> {
     public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
         String[] fields = value.toString().split(","); // Suponiendo que el separador es una coma
         try {
-            double score = Double.parseDouble(fields[1]); // Suponiendo que 'score' está en el segundo campo
+            double score = Double.parseDouble(fields[1]); // Suponiendo que 'score' está en el quinto campo
             word.set("score");
             context.write(word, new DoubleWritable(score));
         } catch (NumberFormatException e) {

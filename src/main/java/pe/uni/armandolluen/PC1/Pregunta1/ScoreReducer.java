@@ -1,4 +1,4 @@
-package pe.uni.armandolluen.PC1.Pregunta1a;
+package pe.uni.armandolluen.PC1.Pregunta1;
 
 import java.io.IOException;
 
